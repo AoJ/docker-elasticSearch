@@ -24,6 +24,9 @@
 
 ## Usage
 
+### run directly
+    docker run -t -i -p 9003:9003 -p 9002:9002 aooj/elasticsearch
+
 ### in Dockerfile
     FROM aooj/elasticSearch:latest
 
