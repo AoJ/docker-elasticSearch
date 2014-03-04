@@ -5,11 +5,10 @@
 #	make build	- build new image from Dockerfile
 #	make debug	- debug run already created image by tag
 #	make try	- build and run in debug mode
-#	make $REV	- deploy in background repo revision
 
 
-NAME=aooj/elastic
-VERSION=0.1
+NAME=aooj/elasticSearch
+VERSION=1.1
 
 
 build:
@@ -17,7 +16,11 @@ build:
 
 
 run:
-	docker run -p 9200:9200 -p 9300:9300 -p 22 -t -i $(NAME):$(VERSION)
+	docker run -p 9002:9200 -p 9003:9300 -p 22 -t -i $(NAME):$(VERSION)
+
+
+debug: build
+	docker run -p 9200 -p 9300 -p 22 -t -i $(NAME):$(VERSION) /bin/bash
 
 
 try: build run

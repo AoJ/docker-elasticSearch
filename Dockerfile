@@ -1,12 +1,18 @@
 
-# Elasticsearch
+# docker Elasticsearch
 #
-# VERSION               0.0.1
-FROM barnybug/openjdk-7-jre
-MAINTAINER AooJ <aooj@n13.cz>
+# VERSION               1.1
+
+FROM aooj/base:latest
+MAINTAINER AooJ <aoj@n13.cz>
 
 # install wget
-RUN apt-get install -y dialog curl wget openssh-server supervisor && apt-get clean
+RUN echo 1
+RUN apt-get install -y openjdk-7-jre-headless && apt-get clean
+
+# just for testing
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
 
 # download and unpack elasticsearch
 RUN wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.0.1.tar.gz -O - | tar zxvf -
@@ -14,22 +20,9 @@ RUN wget -q https://download.elasticsearch.org/elasticsearch/elasticsearch/elast
 RUN mkdir -m 777 elasticsearch-1.0.1/logs elasticsearch-1.0.1/data
 
 # supervisor
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# ssh
-RUN mkdir /var/run/sshd
-RUN mkdir -p /root/.ssh
-ADD authorized_keys root/.ssh/authorized_keys
-RUN chown root:root root/.ssh/authorized_keys
+ADD files/supervisord.conf /etc/supervisor/conf.d/elastic.conf
 
 #setup
-ADD setup.sh /opt/run/setup.sh
-ADD start.sh /opt/run/start.sh
-RUN chmod +x /opt/run/start.sh /opt/run/setup.sh
-RUN ["/opt/run/setup.sh"]
+ADD files/install.sh /opt/run/elastic.sh
 
-# USER nobody
-EXPOSE 9200 9300 22
-CMD /opt/run/start.sh
-# CMD ["/usr/bin/supervisord"]
-# CMD ["elasticsearch-1.0.1/bin/elasticsearch"]
+EXPOSE 9200 9300
