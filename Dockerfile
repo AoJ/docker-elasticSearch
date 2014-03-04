@@ -1,4 +1,3 @@
-
 # docker Elasticsearch
 #
 # VERSION               1.2
@@ -9,8 +8,6 @@ MAINTAINER AooJ <aoj@n13.cz>
 # install wget
 RUN echo 1
 RUN apt-get install -y openjdk-7-jre-headless && apt-get clean
-
-# just for testing
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 
