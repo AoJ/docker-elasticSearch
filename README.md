@@ -9,16 +9,16 @@
     - river mongodb
         - https://github.com/richardwilly98/elasticsearch-river-mongodb/
     - head
-        - localhost:9002/_plugin/head/
+        - localhost:9200/_plugin/head/
         - http://mobz.github.io/elasticsearch-head/
     - bigdesk
-        - localhost:9002/_plugin/bigdesk/
+        - localhost:9200/_plugin/bigdesk/
         - https://github.com/lukas-vlcek/bigdesk
     - HQ
-        - localhost:9002/_plugin/HQ/
+        - localhost:9200/_plugin/HQ/
         - https://github.com/lukas-vlcek/bigdesk
     - inquisitor
-        - localhost:9002/_plugin/inquisitor/
+        - localhost:9200/_plugin/inquisitor/
         - https://github.com/polyfractal/elasticsearch-inquisitor
 - install log is place in /var/log/elastic_install.log
 
