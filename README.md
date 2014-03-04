@@ -3,8 +3,8 @@
 
 - version 1.0.1
 - ports are
-    - 9002 (default is 9200)
-    - 9003 (default is 9300)
+    - 9200
+    - 9300
 - contains
     - river mongodb
         - https://github.com/richardwilly98/elasticsearch-river-mongodb/
@@ -26,7 +26,7 @@
 ## Usage
 
 ### run directly
-    docker run -t -i -p 9003:9003 -p 9002:9002 aooj/elasticsearch
+    docker run -t -i -p 9200:9200 -p 9300:9300 aooj/elasticsearch
 
 ### in Dockerfile
     FROM aooj/elasticSearch:latest
