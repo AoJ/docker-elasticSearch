@@ -20,6 +20,7 @@
     - inquisitor
         - localhost:9002/_plugin/inquisitor/
         - https://github.com/polyfractal/elasticsearch-inquisitor
+- install log is place in /var/log/elastic_install.log
 
 
 ## Usage
@@ -41,7 +42,9 @@
 
 ## TODO
 - add secured proxy for plugins
+- replace sleep with while
     
 ## Changelog
+- 1.2 add install logs
 - 1.1 refactor, optimize
 - 1.0 first realese

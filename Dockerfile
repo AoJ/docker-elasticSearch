@@ -1,7 +1,7 @@
 
 # docker Elasticsearch
 #
-# VERSION               1.1
+# VERSION               1.2
 
 FROM aooj/base:latest
 MAINTAINER AooJ <aoj@n13.cz>
