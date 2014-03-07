@@ -1,6 +1,6 @@
 # docker Elasticsearch
 #
-# VERSION               1.2
+# VERSION               1.3
 
 FROM aooj/base:latest
 MAINTAINER AooJ <aoj@n13.cz>
@@ -21,5 +21,6 @@ ADD files/supervisord.conf /etc/supervisor/conf.d/elastic.conf
 
 #setup
 ADD files/install.sh /opt/run/elastic.sh
+RUN mkdir -p /opt/elastic
 
 EXPOSE 9200 9300

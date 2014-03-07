@@ -21,6 +21,7 @@
         - localhost:9200/_plugin/inquisitor/
         - https://github.com/polyfractal/elasticsearch-inquisitor
 - install log is place in /var/log/elastic_install.log
+- custom install and configure scripts for elastic place to /opt/elastic folder.
 
 
 ## Usage
@@ -48,6 +49,7 @@
 - replace sleep with while
     
 ## Changelog
+- 1.3 add elastic install script
 - 1.2 add install logs
 - 1.1 refactor, optimize
 - 1.0 first realese
