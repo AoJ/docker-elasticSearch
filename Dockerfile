@@ -1,6 +1,6 @@
 # docker Elasticsearch
 #
-# VERSION               1.3
+# VERSION               1.4
 
 FROM aooj/base:latest
 MAINTAINER AooJ <aoj@n13.cz>
@@ -19,8 +19,18 @@ RUN mkdir -m 777 elasticsearch-1.0.1/logs elasticsearch-1.0.1/data
 # supervisor
 ADD files/supervisord.conf /etc/supervisor/conf.d/elastic.conf
 
+# elastic dirs
+RUN mkdir -m 0777 -p /var/log/elasticserach
+RUN mkdir -m 0777 -p /data/elasticsearch
+RUN mkdir -m 0777 -p /tmp/elasticsearch
+RUN mkdir -m 0777 -p /etc/elasticsearch
+
+ADD files/config/ /etc/elasticsearch/
+
 #setup
 ADD files/install.sh /opt/run/elastic.sh
 RUN mkdir -p /opt/elastic
+RUN echo "" > /opt/elastic/dummy.sh
+
 
 EXPOSE 9200 9300

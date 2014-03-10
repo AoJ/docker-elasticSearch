@@ -7,8 +7,8 @@
 #	make try	- build and run in debug mode
 
 
-NAME=aooj/elasticSearch
-VERSION=1.3
+NAME=aooj/elasticsearch
+VERSION=1.4
 
 
 build:
