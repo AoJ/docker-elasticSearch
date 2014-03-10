@@ -19,13 +19,8 @@ RUN mkdir -m 777 elasticsearch-1.0.1/logs elasticsearch-1.0.1/data
 # supervisor
 ADD files/supervisord.conf /etc/supervisor/conf.d/elastic.conf
 
-# elastic dirs
-RUN mkdir -m 0777 -p /var/log/elasticserach
-RUN mkdir -m 0777 -p /data/elasticsearch
-RUN mkdir -m 0777 -p /tmp/elasticsearch
-RUN mkdir -m 0777 -p /etc/elasticsearch
 
-ADD files/config/ /etc/elasticsearch/
+ADD files/config/ /elasticsearch-1.0.1/config/
 
 #setup
 ADD files/install.sh /opt/run/elastic.sh
